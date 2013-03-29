@@ -13,14 +13,17 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
-
-    <dependencies>     
-      <dependency>
-        <groupId>junit</groupId>
-        <artifactId>junit</artifactId>
-        <version>3.8.1</version>
-        <scope>test</scope>
-      </dependency>
+    <dependencies>
+    <dependency>
+      <groupId>org.bukkit</groupId>
+      <artifactId>bukkit</artifactId>
+      <version>1.5.1-R0.1-SNAPSHOT</version>
+    </dependency>
+    <dependency>
+      <groupId>org.bukkit</groupId>
+      <artifactId>craftbukkit</artifactId>
+      <version>1.5.1-R0.1-SNAPSHOT</version>
+    </dependency>
         <dependency>
             <groupId>org.igniterealtime.smack</groupId>
             <artifactId>smackx</artifactId>
@@ -31,16 +34,6 @@
             <artifactId>smack</artifactId>
             <version>3.2.1</version>
         </dependency>
-            <dependency>
-      <groupId>org.bukkit</groupId>
-      <artifactId>bukkit</artifactId>
-      <version>1.5.1-R0.1-SNAPSHOT</version>
-    </dependency>
-    <dependency>
-      <groupId>org.bukkit</groupId>
-      <artifactId>craftbukkit</artifactId>
-      <version>1.5.1-R0.1-SNAPSHOT</version>
-    </dependency>
     </dependencies>
     <repositories>
             <repository>
@@ -48,4 +41,26 @@
                     <url>http://repo.bukkit.org/content/groups/public/</url>
             </repository>
     </repositories>
+    <build>
+        <finalName>BAMxmpp</finalName>
+    <plugins>
+      <plugin>
+        <artifactId>maven-assembly-plugin</artifactId>
+        <version>2.2.1</version>
+        <configuration>
+          <descriptors>
+            <descriptor>src/main/assembly/assembly.xml</descriptor>
+          </descriptors>
+        </configuration>
+        <executions>
+          <execution>
+            <phase>package</phase>
+            <goals>
+              <goal>single</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+    </build>
 </project>

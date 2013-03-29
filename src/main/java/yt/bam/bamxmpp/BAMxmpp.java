@@ -1,17 +1,16 @@
 package yt.bam.bamxmpp;
 
-import org.bukkit.configuration.file.FileConfiguration;
+import java.io.File;
+import java.io.IOException;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.PluginDescriptionFile;
 import org.bukkit.plugin.java.JavaPlugin;
-import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.FileConfiguration;
 
 public class BAMxmpp extends JavaPlugin implements Listener {
 
 	public static BAMxmpp plugin;
-	public final static String intRegex = "(-)?(\\d){1,10}(\\.(\\d){1,10})?";
-
+        
         public BAMxmpp() {
 		plugin = this;
 	}
@@ -23,7 +22,20 @@ public class BAMxmpp extends JavaPlugin implements Listener {
 		PluginDescriptionFile pdfFile = this.getDescription();
 		LogHelper.logInfo("[" + pdfFile.getName() + "] " + "startupMessage");
 		LogHelper.logInfo("[" + pdfFile.getName() + "] " + "version" + " " + pdfFile.getVersion() + " " + "enableMsg");
-		new XMPPer();
+		
+                if (new File(getDataFolder() + "/smack.jar").exists() && new File(getDataFolder() + "/smackx.jar").exists()){
+			try {
+				ClasspathHacker.addFile(getDataFolder() + "/smack.jar");
+				ClasspathHacker.addFile(getDataFolder() + "/smackx.jar");
+			} catch (IOException e){
+				LogHelper.logSevere("xmppSmackReadError");
+			}
+
+			// now initialize the actual XMPP communication handling class if smack is installed
+			new XMPPer();
+		} else {
+			LogHelper.logSevere("xmppDownloadSmack");
+		}
 	}
 
 	@Override
