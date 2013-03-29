@@ -16,8 +16,8 @@
             <directory>${project.basedir}/lib/</directory>
             <outputDirectory>/BAMxmpp/</outputDirectory>
             <includes>
-                <include>smackx-3.2.1.jar</include>
-                <include>smack-3.2.1.jar</include>
+                <include>smackx.jar</include>
+                <include>smack.jar</include>
             </includes>
         </fileSet>
     </fileSets>
