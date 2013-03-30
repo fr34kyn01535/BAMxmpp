@@ -22,6 +22,9 @@ information required to create XMPP (Jabber) connection from your Minecraft serv
 - xmppEnablePingTime: timeout (in minutes) for the previous setting
 - xmppNotifyChatJoin: if true, players on MC server will see when someone joins Jabber chat, if set to false, they won't
 
+Credits
+=====
+BAMxmpp is build from the XMPP module of [CommandsEX](https://github.com/CommandsEX). Thanks to zathrus_writer, the original Author, the CommandsEx Team (Jnorr44, kezz101 and Scrayos) and iKeirNez the current Maintainer for this wonderfull plugin & the permissions to create a slick fork.
 
 BAMxmpp is developed for [BAMcraft.de](http://BAMcraft.de)
 
