@@ -53,6 +53,7 @@
           </descriptors>
           <finalName>BAMxmpp</finalName>
           <appendAssemblyId>false</appendAssemblyId>
+          <addMavenDescriptor>false</addMavenDescriptor>
         </configuration>
         <executions>
           <execution>
