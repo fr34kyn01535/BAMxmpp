@@ -51,6 +51,8 @@
           <descriptors>
             <descriptor>src/main/assembly/assembly.xml</descriptor>
           </descriptors>
+          <finalName>BAMxmpp</finalName>
+          <appendAssemblyId>true</appendAssemblyId>
         </configuration>
         <executions>
           <execution>
